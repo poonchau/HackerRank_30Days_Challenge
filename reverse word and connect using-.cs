@@ -8,7 +8,7 @@ public class Test
 		
 		string str = Console.ReadLine();
 		char[] ch = new char[str.Length];
-	    int k = 0;
+	        int k = 0;
 	    
 		for (int i = str.Length-1; i >=0; i--)
 		{    
