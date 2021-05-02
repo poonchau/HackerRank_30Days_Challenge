@@ -1,0 +1,17 @@
+function sum(newArr,target){
+    let indexPosition = [];
+    for(i=0;i<newArr.length;i++){
+        for(j=1;j<newArr.length;j++){
+            if(newArr[i] + newArr[j] == target){
+                indexPosition.push(newArr[i]);
+                indexPosition.push(newArr[j]);
+                return indexPosition;
+            }
+        }
+       
+    }
+    
+}
+let arr = [1,2,3,9];
+target = 9;
+console.log(sum(arr,target));
