@@ -1,0 +1,27 @@
+function checkBalancedParanthesis(str){
+    let bracketArray = [];
+    for(var i = 0; i < str.length; i++){
+        if(str[i]=='(' || str[i]=='{' || str[i]=='['){
+            bracketArray.push(str[i]);
+        }
+        else if(str[i]==')' || str[i]=='}' || str[i]==']'){
+             if(bracketArray[bracketArray.length-1]== '('|| bracketArray[bracketArray.length-1]== '{'|| bracketArray[bracketArray.length-1]== '[')
+                bracketArray.pop();
+
+        }
+             
+    }
+
+    if(bracketArray.length == 0)  return true;
+      
+    else  return false;  
+     
+
+}
+
+
+
+
+
+
+console.log(checkBalancedParanthesis('(([))'));
