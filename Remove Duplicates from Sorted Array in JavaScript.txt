@@ -1,0 +1,37 @@
+//a1=[...a1,...a2];//Spread Operator
+
+Remove Duplicates from Sorted Array
+
+function removeDuplicateEle(a1){
+  let temp=0;
+
+  for(let i = 0; i< a1.length-1; i++){
+      for(let j = 0; j < a1.length-1-i;j++){
+          if(a1[j] > a1[j+1]){
+              temp = a1[j+1]; 
+              a1[j+1] = a1[j];
+              a1[j]   = temp;
+          }
+      }
+    }
+
+  let distinctArrEle = [];
+  for(let i = 0; i < a1.length;i++){
+    if(a1[i]!=a1[i+1])
+      distinctArrEle.push(a1[i]);
+      
+    
+  }
+
+//distinctArrEle.push(a1[i]);
+  for(let k = 0; k < distinctArrEle.length; k++){
+      console.log(distinctArrEle[k]);
+  }
+}
+  
+
+
+
+let a1=[1,5,6,2,9,7,8,8,2,1,3,7];
+
+removeDuplicateEle(a1);
