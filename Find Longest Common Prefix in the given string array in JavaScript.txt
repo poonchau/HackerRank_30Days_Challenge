@@ -1,0 +1,47 @@
+Find Longest Common Prefix in the given string array (using Word by Word Matching)
+
+Algorithm:
+step1: Count the no of words in the string array
+
+step2: Pass the first two word in the findCommonPrefix() function
+
+step3: Find the longest common matching string in both words
+
+step4: if there is any word left in the string array then call the findCommonPrefix() function again with two argument (latest common prefix found , next string array value)
+
+stet5: repeate the step3
+
+step6: return the LongestCommonPrefix
+
+function findCommonPrefix(str1,str2){
+    let result='';
+    for(let i = 0 , j = 0; i < str1.length && j < str2.length; i++,j++){
+        if(str1[i]!=str2[j])
+            break;
+        result+= str1[i];
+    }
+    
+    return result;
+    
+}
+
+var longestCommonPrefix = function(strs) {
+
+    let prefix = strs[0];
+    for(let i = 1; i < strs.length;i++){
+        prefix = findCommonPrefix(prefix,strs[i]);
+    }
+    
+    return prefix;
+    
+}
+
+
+
+
+
+
+let strs = ['geeks','geek','gee'];
+
+
+console.log(longestCommonPrefix(strs));
