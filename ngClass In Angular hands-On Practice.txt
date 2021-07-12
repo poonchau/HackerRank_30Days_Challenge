@@ -1,0 +1,65 @@
+------------------------------------------------------------------------
+.html file
+
+ <input type="text" name="fname">
+  <button type="submit" (click)="onSubmit()">Submit</button>
+  <button type="submit" (click)="onCancel()">Cancel</button>
+ 
+    <div [ngClass]="[isSubmitted ? 'apply1' : 'apply2']">
+      <div *ngIf="isSubmitted"> 
+        Form Submitted :)
+      </div>
+    </div>  
+    <div [ngClass]="[notSubmitted ? 'apply2' : 'apply1']">
+      <div *ngIf="notSubmitted"> 
+        Form not Submitted :(
+      </div>
+    </div>
+-------------------------------------------------------------------- 
+.css file
+
+
+.apply1{
+  color:green;
+}
+
+.apply2{
+  
+  color:red;
+ 
+-------------------------------------------------------------------
+
+.ts file
+
+import { Component, OnInit, VERSION } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: [ './app.component.css' ]
+})
+export class AppComponent implements OnInit  {
+  name = 'Angular ' + VERSION.major;
+  isfetched=false;
+  apply1:any;
+  apply2:any;
+  isSubmitted=false;
+  notSubmitted=false;
+
+  ngOnInit(){
+
+
+  }
+
+  onSubmit(){
+    this.isSubmitted=true;
+    this.notSubmitted=false;
+    console.log("form Submitted!!")
+
+  }
+
+  onCancel(){
+    this.notSubmitted=true;
+    this.isSubmitted=false;
+  }
+}
