@@ -1,0 +1,164 @@
+<!-- <div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      
+        <div class="modal-content">
+            <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="loginForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="email" placeholder="Email*">    
+                         <span class="fa fa-envelope"></span>
+                        <div style="color:red;" *ngIf="f.email.invalid && f.email.touched">
+                            <span>email-id is required</span>
+                            
+                        </div> 
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password*"> 
+                        <span><i class="fa fa-lock"></i></span>
+                        <div style="color:red;" *ngIf="f.password.invalid && f.password.touched">
+                            <span>Password is required</span>
+                            
+                        </div> 
+
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-info " [disabled]=!loginForm.valid (click)="OnSubmit()">Submit</button>
+                </form>    
+            </div>
+
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <span class="back_home" data-dismiss="modal"><a routerLink='/header'>Back to home page</a></span>
+            </div>
+        </div>
+  
+    </div>
+</div>  -->
+<div *ngIf="isSubmitted">
+ <span>Form Submitted Successfully!!</span>
+</div>
+<mat-card style="width:50%" class="text-center">
+    <!-- <div class="clossbtn">
+        <button type="button" (click)="closeLoginPage()" class="close">&times;</button>
+    </div> -->
+    <mat-card-title>Login Form</mat-card-title>
+    
+        <form [formGroup]="loginForm">
+            <mat-form-field style="width:75%;" appearance="outline">
+                <input matInput type="text" formControlName="email" placeholder="Enter Email*">
+                <!-- <span matPrefix><i class="fa fa-envelope m-2"></i></span> -->
+                
+                <mat-error *ngIf="f.email.invalid && f.email.touched">
+                  <span>Please Enter Valid Email Address</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field style="width:75%;" appearance="outline">
+                <input matInput type="text" formControlName="password"placeholder="Enter Password*">
+                <!-- <span matPrefix><i class="fa fa-lock"></i></span> -->
+                <mat-error *ngIf="f.password.invalid && f.password.touched">
+                    <!-- <span>Password is required</span> -->
+                    <span>must contain at least 1 Uppercase, 1 Lowercase, 1 special character and 1 number</span>
+                </mat-error>
+            </mat-form-field>
+
+            <button style="width:75%;" mat-raised-button type="submit" color="primary" [disabled]=!loginForm.valid (click)="onSubmit()">Log In</button>
+            
+        </form>
+</mat-card>
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+.ts
+
+
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormGroup,FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+  //boolstatus:boolean=false;
+  isSubmitted:boolean=false;
+  loginForm : FormGroup;
+
+  constructor(private fb: FormBuilder, private toastr: ToastrService, private router:Router) { }
+
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email:[
+        '',
+        [Validators.required, Validators.pattern(/^([a-zA-Z0-9]+)@([a-zA-Z0-9]+).([a-z]{2,8})$/)]
+      ],
+      password:[
+        "",
+        [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#%&\$\^\*])(?=.{8,20})/)]
+      ]
+      
+    });
+  }
+
+// convenience getter for easy access to form fields
+  get f(){
+    return this.loginForm.controls;
+  }
+
+  
+
+  // get email(){
+  //   return this.loginForm.get('email');
+  // }
+ 
+  // get password() {
+  //   return this.loginForm.get("password");
+  // }
+  
+
+  onSubmit(){
+
+    if(this.loginForm.invalid){
+      return;
+    }
+
+    this.isSubmitted = true;
+    console.log(this.loginForm);
+
+    // console.log("Logged In!");
+    // this.toastr.success("Logged In");
+    // this.router.navigateByUrl('/header');
+    
+  }
+
+  closeLoginPage(){
+    //console.log("Logged In!");
+    //this.toastr.success("Logged In");
+    this.router.navigateByUrl('/header');
+
+  }
+
+}
+
+
+
+ <mat-form-field formArrayName="Address">
+            <div *ngFor="let item of loginForm.controls.Address['controls']; let i=index" [formGroupName]="i">
+                <input matInput type="text" formControlName="city" id=city{{i}}>
+            </div>
+             
+        </mat-form-field>
+
+    
+
