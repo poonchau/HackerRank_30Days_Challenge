@@ -1,0 +1,75 @@
+https://www.youtube.com/watch?v=Rb05ioLMDtM
+
+
+
+Angular component output properties--- Must watch again
+
+https://www.youtube.com/watch?v=1jgqOt7s6Jo
+
+
+Angular 2 container and nested components  -- Kudvenkart
+
+
+Push and Splice with ngFor in Angular | Angular 6 Tutorial in Hindi (2019) [#15] -- UxTrenz
+
+Angular Exercise #01 - Solution ( NgIf | NgFor | Input | Output | Push | Splice) -- Uxtrenz
+-----------------------------------------------------------------------------------------------------
+let counter = function(){
+    let k = 0;
+    return () => k++;
+} ();
+
+console.log(counter());
+console.log(counter());
+console.log(counter());    // 0 1 2
+------------------------------------------------------------------------------------------------------
+
+Below are the basics Questions kindly prepare on that 
+CSS - 
+ 1. Preprocessors in CSS - 
+ 2. Explain all position properties - 
+ 3. What are CSS sprites and their advantages - 
+ 4. Question related to specificity -
+  5 What are pseudo elements - 
+ 
+     HTML - 
+ 1. What are web workers.- 
+ 2. What are iframes and their pros and cons -
+ 
+     Javascript - 
+ 1. What is an event loop? - 
+ 2. Output based question on event loop - 
+ 3. What is closure - 
+ 4. Output question related to closure - 
+ 5. Question related to object reference copy - 
+ 6. Difference b/w shallow copy and deep copy - 
+ 7. Difference between prototypical inheritance and classical inheritance -
+ 8. What is object.assign - 
+   What is hoisting - 
+ Different ways of object creation - 
+  Difference between creation of object through constructor function and Object.create -
+  Program to write using Array.reduce -   
+ 
+    Angular - 
+ 1. Explain all lifecycle hooks of angular. -
+ 2. Difference b/w View Children and Content Children. 
+ 3. Difference b/w debounce and throttle - 
+ 4. Different types of Directive in Angular. - 
+ 5. Question regarding state management - 
+ 6. What is IVY rendering - 
+ 7. Different change detection strategy of angular - 
+When to use ngContent - 
+ How to share data between components - 
+ Implementation of state management - 
+ Difference b/w combineLatest and mergeMap 
+   Explain Subject and its different types -   
+ 
+ 
+     Javascript - 
+ 1. What is an event loop? - 
+ 2. What is closure - 
+ 3. Question related to object reference copy - 
+ 4. What is hoisting - 
+ 5. Difference between function declaration and function expression -
+ 6. Difference between Filter, Map and Reduce - 
+
