@@ -1,0 +1,6 @@
+let arr = [1,2,3,2,4,5,3,1,6];
+
+let distinctEle = arr.filter((ele,index)=> arr.indexOf(ele) == index);
+console.log(distinctEle);
+
+output: [1,2,3,4,5,6]
