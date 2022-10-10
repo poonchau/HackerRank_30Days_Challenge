@@ -1,0 +1,26 @@
+
+function pairs(k, arr) {
+  let count=0
+  let aa = [];
+  const setA = new Set(arr);
+    for(let arrEle of arr){
+        let findVal = arrEle+k;  
+        if(setA.has(findVal)){
+            count = count + 1;
+            aa.push([arrEle, findVal]);
+        } 
+    } 
+    console.log(count);
+    console.log(aa);
+}
+pairs(2,[1,5,3,4,2]);
+
+
+output:
+3
+[ [ 1, 3 ], [ 3, 5 ], [ 2, 4 ] ]
+
+if we change logic FROM let findVal = arrEle+k  TO   let findVal = arrEle-k
+output:
+3
+[ [ 5, 3 ], [ 3, 1 ], [ 4, 2 ] ]
