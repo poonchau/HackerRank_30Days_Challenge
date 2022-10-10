@@ -1,0 +1,65 @@
+/**
+ * @param {string[][]} accounts
+ * @return {string[][]}
+ */
+
+var accountsMerge = function(accounts) {
+let graph = {};
+for (const account of accounts) {
+let name = '';
+let prevEmail = null;
+    for (let i = 0; i < account.length;i++) {
+    if (i === 0) {
+    name = account[i];
+    } else {
+            const email = account[i];
+            if (!graph[email]) {
+                graph[email] = {
+                edges: [],
+                name: name
+                }
+            }
+        
+            if (prevEmail !== null) {
+                // add edges to graph if they dont already exist
+                if (!graph[prevEmail].edges.includes(email)) {
+                graph[prevEmail].edges.push(email); //
+                graph[email].edges.push(prevEmail);
+                }
+            }
+            prevEmail = email;
+        }
+    }
+}
+    
+// Create a DFS function
+var dfs = function(graph, node, visited, output) {
+visited[node] = true;
+output.push(node);
+    
+for (const email of graph[node].edges) {
+    if (!visited[email]) {
+    dfs(graph, email, visited, output)
+    }
+}
+return output;
+}
+
+let visited = {};
+const emails = Object.keys(graph);
+let merged = [];
+// DFS each unvisited email to create output
+for (const email of emails) {
+if (!visited[email]) {
+// Output will be created at each unvisted node
+// which means after the dfs, we will have visited all connected emails on the account
+let output = []
+dfs(graph, email, visited, output)
+output.sort();
+// Add name to front after sorting
+output.unshift(graph[email].name)
+merged.push(output);
+}
+}
+return merged;
+};
