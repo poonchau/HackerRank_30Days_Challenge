@@ -1,0 +1,26 @@
+class Solution{
+    //Function to find the leaders in the array.
+    public:
+    vector<int> leaders(int a[], int n){
+        // Code here
+        int max= a[n-1];   // assign last array ele in max
+        vector<int> ans;
+        ans.push_back(max); // last ele always be included , since no ele is present to compare further
+        int temp;
+        for(int i=n-2; i>=0;i--){  // Traverse the array from right to left
+            if(max <= a[i]){
+                ans.push_back(a[i]);
+                max= a[i];
+            }
+        }
+		// we have to print the result Last-In-First-Out, so need to reverse the array
+        int k = ans.size();
+        int m = floor(ans.size()/2);  // in case of 3, 5, 7, 9..... need to take the rounded down integer
+        for(int i=0; i<m;i++){
+            temp = ans[i];
+            ans[i]=ans[k-i-1];
+            ans[k-i-1]=temp;
+        }
+        return ans;
+    }
+};
