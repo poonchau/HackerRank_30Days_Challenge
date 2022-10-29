@@ -1,0 +1,44 @@
+The cost of stock on each day is given in an array A[] of size N. 
+Find all the days on which you buy and sell the stock so that in between those days your profit is maximum.
+
+Input:
+N = 7
+A[] = { 100, 180, 260, 310, 40, 535, 695 }
+
+Output:
+(0 3) (4 6)
+
+void stockBuySell(int price[], int n) {
+    // code here
+    int minIndex, maxIndex;
+    int i=0;
+    int count = 0;
+    // initialize container
+	map<int, int> mp;
+
+        while(i < n-1){
+        // find minimum price at which we can buy the stock    
+            while((i < n-1) && (price[i] >= price[i+1])){
+                i++;
+            }
+            // incase we found the minimum value at the last index then we can't sell
+            if(i==n-1){
+                break;
+            }
+            minIndex = i++;
+            // find maximum price at which we can sell the stock
+            while((i<n) && (price[i] >= price[i-1])){
+                i++;
+                count++;
+            }
+            maxIndex = i-1;
+	        mp.insert({ minIndex, maxIndex });
+            
+        }
+    // iterate on map and Print the element  
+	for (auto itr = mp.begin(); itr != mp.end(); ++itr) {
+		cout << "(" << itr->first
+			<< " " << itr->second << ") ";
+	}
+   
+}  
