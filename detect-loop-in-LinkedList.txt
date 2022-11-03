@@ -1,0 +1,132 @@
+Given a linked list of N nodes. The task is to check if the linked list has a loop
+
+class Solution
+{
+    public:
+    //Function to check if the linked list has a loop.
+    bool detectLoop(Node* head)
+    {
+        // your code here
+       	// now I'll use a unordered_map and store everyNode value and mark it as Present i mean it's True==1
+		unordered_map<Node*,int> umap;
+		while(head){
+			if(!umap[head]){
+			    umap[head] = 1;
+			    head=head->next;
+			}
+			else return true;
+		}
+		return false;
+    }
+};
+
+
+-------------------------------------------------------------------------------------------------------------
+solution1 :
+TC : O(n)
+SC : O(n)
+		// now I'll use a unordered_map and store everyNode value and mark it as Present i mean it's True==1
+		unordered_map<int,int> umap;
+		while(head !=NULL && head->next !=NULL){
+			if(umap[head->data] == 1)
+				return True;
+			else umap[head->data] = 1;	
+		}
+		
+		return false;
+
+Solution2:
+TC : O(n)
+SC : O(1)
+	 // here we will use 2 pointers , slow and fast
+	 // traverse the LinkedList
+	 while(fast && fast->next!=NULL){
+	 // we are moving slow by 1 step and fast by 2 steps
+		slow=slow->next;
+		fast=fast->next->next;
+	 // now, at some point of time we will find that slow and fast pointer meet at point if there is loop in the linkedList
+		if(slow==fast)
+		  return true;
+		
+	}
+	return false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	const fetchData = ()=>{
+	return new Promise((res)=> res("One"))
+};
+ let isLoading = true;
+ 
+ fetchData().then((result)=>{
+	console.log(result);
+ }).finally(()=>{
+	console.log("Two");
+	isLoading = false;
+ });
+ 
+ console.log(isLoading);
+ fetchData();
+ 
+ 
+ const promise = new Promise((res)=> res("One"));
+  console.log(promise);
+ let isLoading = true;
+ 
+ promise.then((result)=>{
+	console.log(result);
+ }).finally(()=>{
+	console.log("Two");
+	isLoading = false;
+ });
+ 
+ console.log(isLoading);
+ 
+
+
+ 
+ 
+output will be
+
+true
+
+One
+
+Two
+
+As we know JavaScript is a single-threaded, non-blocking, asynchronous language
+
+ The Promise object represents the eventual completion of an asynchronous operation
+ Promise is a proxy for a value not necessarily known when the promise is created. 
+ It allows us to associate handlers with an asynchronous action's eventual success value or failure reason.
+ This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, 
+ the asynchronous method returns a promise to supply the value at some point in the future.
+ 
+ 
+output will be
+
+true
+
+One
+
+Two
+
+ As we know JavaScript is a single-threaded, non-blocking, asynchronous language
+ Since JavaScript doesn't block the code execution, hence 
+ this statement get executed first--> console.log(isLoading)
+ 
+ Promise object represents the eventual completion (or failure) of an asynchronous operation.
+ instead of immediately returning the final value, 
+ the asynchronous method returns a promise to supply the value at some point in the future
