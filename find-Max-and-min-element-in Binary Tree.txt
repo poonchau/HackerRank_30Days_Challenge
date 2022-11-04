@@ -1,0 +1,29 @@
+
+As we know in Binary Search Tree (BST)
+Left node value is less than root node value and
+Right node value is greater than root node value
+Hence to find Mininmum value in BST we just have to traverse the tree utill it's left node points to the null means no further node exist 
+similarly to find Maximum value in BST we just have to traverse the tree untill right pointer points to null 
+class Solution
+{
+public:
+    int findMax(Node *root)
+    {
+        //code here
+        //base condition if not a single node exist
+        if(root==NULL) return -1;
+        if(root->right==NULL)
+            return root->data;
+        int maxValue = findMax(root->right); 
+        return maxValue;
+    }
+    int findMin(Node *root)
+    {
+        //code here
+        if(root==NULL) return -1;
+        if(root->left==NULL)
+            return root->data;
+        int minValue =  findMin(root->left);  
+        return minValue;
+    }
+};
