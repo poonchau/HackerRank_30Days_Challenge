@@ -1,0 +1,31 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+class FindTargetValue {
+    public:
+    void twoSum(int arr[], int N, int target){
+        map<int,int> umap;
+        for(int i=0;i<N;i++){
+            int b = target - arr[i];
+           // cout << b << " " << arr[i] <<endl;
+            if(umap[b]){
+                cout << "[" << i-1 << "," << umap[b] <<"]"<< endl;
+            }
+            umap[arr[i]]=i+1;
+        }  
+    }
+};
+
+int main()
+{
+    int arr[6] = {2,7,11,15, 3,6}, N=6, target = 9;
+    FindTargetValue obj;
+    obj.twoSum(arr, N, target);
+
+    return 0;
+}
+
+output:
+[0,1]
+[4,5]
