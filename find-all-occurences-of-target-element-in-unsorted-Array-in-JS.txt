@@ -1,0 +1,38 @@
+function findAllIndexTargetElements(arr,index,size,target,obj){
+    if(index==size) 
+        return;
+    if(target == arr[index])
+    {  
+        obj.arr.push(index);
+    }
+    findAllIndexTargetElements(arr,index+1,size,target,obj);
+    return obj;
+
+}
+let arr = [4,3,1,22,3,4];
+let target = 4;
+let obj = {
+             arr:[]
+          };
+let newArr= findAllIndexTargetElements(
+           arr,
+            0,
+            arr.length,
+            target,
+            obj);
+            
+console.log(newArr); 
+ans:
+ {
+    "arr": [
+        0,
+        5
+    ]
+}
+
+console.log(newArr.arr); 
+ans:
+[
+    0,
+    5
+]
