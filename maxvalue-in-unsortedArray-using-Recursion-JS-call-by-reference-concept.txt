@@ -1,0 +1,31 @@
+1. Method
+function findMax(arr,size,index){
+    //base condition
+    if(index==size) return Number.MIN_VALUE;
+    
+    let ans = arr[index];
+    let recAns = findMax(arr,size, index+1);
+    return Math.max(ans, recAns);
+}
+
+console.log(findMax([7,2,15,9,21,18],6,0)); // 21
+
+2. Using the concept of Call by Reference in JavaScript
+function findMax(arr,size,index,maxi){
+    //console.log(maxi);
+    //base condition
+    if(index==size) 
+       return Number.MIN_VALUE;
+     maxi.value = Math.max(maxi.value, arr[index]);;
+     findMax(arr,size, index+1, maxi);
+    return maxi.value;
+}
+let arr = [7,2,15,9,21,18];
+let maxi = {value : arr[0]};
+console.log("max is: " + findMax(arr,6,0, maxi)); // max is: 21
+
+V.V.IMP key points to remember
+Features of By reference:
+In JavaScript, all objects interact by reference.
+If an object is stored in a variable and that variable is made equal to another variable then both of them occupy the same location in memory.
+Changes in one object variable affect the other object variable.
