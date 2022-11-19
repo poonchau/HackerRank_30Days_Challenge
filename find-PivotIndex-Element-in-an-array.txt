@@ -1,0 +1,19 @@
+var pivotIndex = function(nums) {
+    let pivotIndex = null;
+    let TotalSum = 0;
+    for(let i=0;i<nums.length;i++)
+        TotalSum+=nums[i];
+    let leftSum = 0;    
+    for(let i=0;i<nums.length;i++)
+    {
+      let rightSum = TotalSum - leftSum - nums[i];
+      if(leftSum == rightSum){
+          pivotIndex =  i;
+          return pivotIndex;
+      }  
+      else leftSum+=nums[i];
+    }
+
+    return (pivotIndex == null) ? -1 : pivotIndex;
+};
+console.log(pivotIndex([-1,-1,-1,-1,-1,0]));
