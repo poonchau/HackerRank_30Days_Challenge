@@ -11,6 +11,35 @@ Algorithm:
 and then I'll find max(left,right) + 1
 
 
+In JS 
+class Node{
+    constructor(data){
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+*/
+
+class Solution {
+    //Function to find the height of a binary tree.
+    height(node)
+    {
+        if (node == null) return -1; // in case root is null, i.e node not exist
+        //your code here
+        function _depth(node) {
+          if (node == null) return 0;  // once either left or right of tree reaches end of the tree
+          let leftDepth = _depth(node.left) + 1;
+          let rightDepth = _depth(node.right) + 1;
+        
+          return Math.max(leftDepth, rightDepth);
+        }
+        
+       return _depth(node);
+    }
+}
+
+In CPP
 ////////////////////////////////////////////
 executed on GFG Practics 
     class Solution{
@@ -24,7 +53,6 @@ executed on GFG Practics
         int right = height(node->right);
         
         int ans = max(left, right) + 1;
-        
         return ans;
     }
 };
