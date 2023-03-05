@@ -1,0 +1,30 @@
+
+/* print in output distinct duplicateArray element in increasing order */
+function duplicateArr(input1, input2){
+let newArr = [], result = [];
+newArr = input2.filter((value,index,arr)=>{
+    if(arr.indexOf(value)!==index && 
+    result.includes(value)===false){
+        result.push(value);
+        return result;
+    }
+} 
+);
+ 
+	//if(newArr.length>0){
+		return newArr.sort((a,b)=> a-b) //sort the result in ascending order
+	// } else {
+		return [-1];
+	//}
+
+return newArr.length>0 ? newArr.sort((a,b)=> a-b) : [-1]
+ 
+
+}
+let res = duplicateArr(8,[58,58,4,4,5,4,2,6,60,58,58]);
+console.log("distinct duplicateArray element in increasing order:",res);
+
+//   4  0!=0
+//   4  0!=1 true
+//   5  2!=2 false
+//   4  0!=3 true
