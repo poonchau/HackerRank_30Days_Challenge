@@ -1,0 +1,39 @@
+1. Using substr()
+
+var months = ['january', 'february', 'march'];
+let output = [];
+for(let month of months){
+    month = month.charAt(0).toUpperCase() + month.substr(1);
+    output.push(month);
+}
+console.log(output);
+
+output : ['January', 'February', 'March']
+
+2. Using slice()
+
+const names = ["alice", "bob", "charlie", "danielle"]
+
+const capitalized = names.map((name) =>  name[0].toUpperCase() + name.slice(1));   
+
+// name.slice(1) =>  "alice".slice(1) i.e start slicing from index 1 and go till the end of the string  "alice".slice(1) will give "lice"
+
+console.log(capitalized);
+
+output : [ 'Alice', 'Bob', 'Charlie', 'Danielle' ]
+    
+
+explanation
+String.prototype.substr()
+The substr() method returns a portion of the string, starting at the specified index and extending for a given number of characters afterwards.
+syntax:
+substr(startingIndex, endingIndex)
+NOTE:endingIndex included
+
+examples
+const str = 'Mozilla';
+console.log(str.substr(1, 2));
+// Expected output: "oz"
+
+console.log(str.substr(2));
+// Expected output: "zilla"
