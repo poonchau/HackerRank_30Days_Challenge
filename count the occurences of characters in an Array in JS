@@ -1,0 +1,13 @@
+function countItem(arr){
+let counts = {}
+for(let i=0;i<arr.length;i++){
+	if(typeof counts[arr[i]]==='undefined'){
+	    console.log(typeof counts[arr[i]]==='undefined');
+		counts[arr[i]] = 1;
+	}else{
+		counts[arr[i]]++
+	}
+}
+	return counts;
+}
+console.log(countItem(['a','b','c','a','b','b','c','d'])); // {a:2,b:3,c:2,d:1}
