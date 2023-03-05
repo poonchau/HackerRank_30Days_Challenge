@@ -1,0 +1,22 @@
+find the shortest substring in a given string that contains all the characters of a given word
+let inp = "My name is Fran";
+let inp1="rim";
+const res = [];
+for(let i of inp1){
+    t = inp.indexOf(i);
+    //console.log(t);
+    res.push(t);
+    
+}
+//console.log(res); [12,8,5]
+
+
+res.sort((a,b)=> a-b);
+
+//console.log(res); [5,8,12]
+
+//console.log(res[res.length-1]); 12
+
+let final  = inp.slice(res[0], res[res.length-1]+1); // inp.slice(startingIndex, endingIndex) = inp.slice(5,13) || NOTE: endingIndex excluded
+//console.log(typeof final, final);
+console.log(typeof final, final); // me is Fr
