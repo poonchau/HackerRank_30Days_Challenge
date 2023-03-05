@@ -22,7 +22,7 @@ return newArr.length>0 ? newArr.sort((a,b)=> a-b) : [-1]
 
 }
 let res = duplicateArr(8,[58,58,4,4,5,4,2,6,60,58,58]);
-console.log("distinct duplicateArray element in increasing order:",res);
+console.log("distinct duplicateArray element in increasing order:",res); // [4,58]
 
 //   4  0!=0
 //   4  0!=1 true
