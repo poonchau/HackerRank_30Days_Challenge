@@ -1,3 +1,42 @@
+Best way of solving this problem
+
+function reverseWords(str){
+let output = '';
+str = str.split(' ');
+//console.log(str);
+   for(let i=str.length-1;i>=0;i--){
+      if(str[i]!=''){
+         output = output +" "+str[i];
+      }
+   }
+   console.log(output);
+}
+reverseWords(" Hello World! ");
+reverseWords("I am done ");
+
+--------------------------------------------------------------------------
+
+
+
+function reverseWords(str){
+    let output = [];
+   str = str.split(' ');
+   //console.log(str);
+   for(let i=str.length-1;i>=0;i--){
+      if(str[i]!=''){
+          output.push(str[i])
+      }
+       //output.push(str[i])
+   }
+   
+  console.log(output);
+  console.log(output.toString()); //convert array to string
+}
+reverseWords(" Hello World! ");  // Hello World!
+
+
+
+bit complex --> not preferred 
 function reverseWords(str){
    let i=0;
    let n = str.length;
@@ -29,7 +68,7 @@ input : 'Try for the best you can '
 
 
 
-2.
+------------------------------------------------------------
 function reverseWords(str){
     let output = [];
    str = str.split(' ');
