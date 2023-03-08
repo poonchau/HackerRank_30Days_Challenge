@@ -1,0 +1,47 @@
+function reverseWords(str){
+   let i=0;
+   let n = str.length;
+   //console.log(n);
+   let result = '';
+   while(i<n){
+     while(i<n && str[i]==' '){
+        i++;
+     } 
+     let j = i+1;
+     while(j<n &&  str[j] !=' '){
+      j++;
+     } 
+     let sub = str.substr(i, j-i);
+     if(result.length==0)
+      result = sub;
+     else result = sub + " " + result;
+     i = j+1;
+   }
+   return result;
+}
+
+console.log(reverseWords(" Hello World!")); // World! Hello
+console.log(reverseWords("I am done "));   //  done am I
+
+input : 'Hello World!'
+input : ' Poonam is smart'
+input : 'Try for the best you can '
+
+
+
+2.
+function reverseWords(str){
+    let output = [];
+   str = str.split(' ');
+   //console.log(str);
+   for(let i=str.length-1;i>=0;i--){
+       output.push(str[i])
+   }
+   
+   console.log(output);
+  //console.log(output.toString()); convert array to string
+}
+reverseWords("Hello World!");
+
+output:
+[ 'World!', 'Hello' ]
