@@ -10,7 +10,8 @@ function sec_max(arr){
 		if(max < arr[i]){
 		    sec_max = max
 			max = arr[i];
-			
+		} else if(sec_max < arr[i] && arr[i] < max){
+			sec_max = arr[i];
 		}
 		i++;
 	}
