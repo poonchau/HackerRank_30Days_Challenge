@@ -1,0 +1,19 @@
+function sec_max(arr){
+ //B.C
+	if(arr.length <= 1)
+		return null;
+  
+	let max = arr[0];
+	let sec_max = 0;
+	let i = 1;
+	while(i <= arr.length-1){
+		if(max < arr[i]){
+		    sec_max = max
+			max = arr[i];
+			
+		}
+		i++;
+	}
+	return sec_max;
+}
+console.log(sec_max([1,2,4,6,8,10]));
