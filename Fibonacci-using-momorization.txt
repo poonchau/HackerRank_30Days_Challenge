@@ -1,0 +1,19 @@
+function fibonicci(n, memo){
+    //Base case
+    if(n==0){
+        return 0
+    }
+    if(n==1){
+        return 1;
+    }
+    //Momorization
+    if(memo[n]){
+        return memo[n];
+    }
+
+    ans = fibo(n-1, memo) + fibo(n-2, memo);
+    memo[n] = ans;
+    return ans;
+}
+
+console.log(fibo(6,{}));
