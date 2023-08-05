@@ -1,0 +1,22 @@
+function findSubSequence(s, t, i, j) {
+    // Base case
+    if (i == s.length || j == t.length)
+        return 0;
+
+    if (s[i] == t[j]) {
+        // If the characters match, add 1 to the count and move to the next characters in both strings
+        return 1 + findSubSequence(s, t, i + 1, j + 1);
+    } else {
+        // If the characters don't match, try to find the subsequence starting from the next character in string t
+        return findSubSequence(s, t, i, j + 1);
+    }
+}
+
+let s = "abc";
+let t = "ahbgdc";
+let count = findSubSequence(s, t, 0, 0); 
+if(count== s.length)
+    console.log(true);
+else
+    console.log(false);    
+// Output: 3
