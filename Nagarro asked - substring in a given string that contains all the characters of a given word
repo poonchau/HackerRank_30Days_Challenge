@@ -1,4 +1,22 @@
 find the shortest substring in a given string that contains all the characters of a given word
+function shortestSubString(str, allchar){
+    let res=[];
+    for(let i of allchar){
+        res.push(str.indexOf(i)); // find index of each char in the given string, here i will contain character's 
+    }
+
+   res = res.sort((a,b)=> a-b);
+   //now use the slice method 
+    console.log(str.slice(res[0], res[res.length-1]+1));
+}
+
+let str = "My name is Fran";
+let allchar="rim";
+
+shortestSubString(str, allchar);
+
+
+/////////////////////////////////////
 let inp = "My name is Fran";
 let inp1="rim";
 const res = [];
