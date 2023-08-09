@@ -1,0 +1,16 @@
+Remove Nth element from end of the array
+
+function removeNthFromEnd(array, n) {
+    const index = array.length - n;
+    if (index >= 0 && index < array.length) {
+      array.splice(index, 1); //splice(startIndex, deleteCount, eitheryouaddOrNotaddAnything?)
+    }
+    return array;
+  }
+  
+  // Example usage
+  let array = [1, 2, 3, 4, 5];
+  let n = 2;
+  let result = removeNthFromEnd(array, n);
+  console.log(result); // Output: [1, 2, 3, 5]
+  
