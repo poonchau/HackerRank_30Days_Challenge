@@ -1,5 +1,23 @@
 Given a linked list of N nodes. The task is to check if the linked list has a loop
 
+Solution2:
+TC : O(n)
+SC : O(1)
+	 // here we will use 2 pointers , slow and fast
+	 // traverse the LinkedList
+	 while(fast && fast->next!=NULL){
+	 // we are moving slow by 1 step and fast by 2 steps
+		slow=slow->next;
+		fast=fast->next->next;
+	 // now, at some point of time we will find that slow and fast pointer meet at point if there is loop in the linkedList
+		if(slow==fast)
+		  return true;
+		
+	}
+	return false;
+
+------------------------------------------------------------
+
 class Solution
 {
     public:
@@ -35,21 +53,7 @@ SC : O(n)
 		
 		return false;
 
-Solution2:
-TC : O(n)
-SC : O(1)
-	 // here we will use 2 pointers , slow and fast
-	 // traverse the LinkedList
-	 while(fast && fast->next!=NULL){
-	 // we are moving slow by 1 step and fast by 2 steps
-		slow=slow->next;
-		fast=fast->next->next;
-	 // now, at some point of time we will find that slow and fast pointer meet at point if there is loop in the linkedList
-		if(slow==fast)
-		  return true;
-		
-	}
-	return false;
+
 	
 	
 	
