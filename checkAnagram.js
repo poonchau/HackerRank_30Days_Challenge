@@ -3,7 +3,7 @@ function checkAnagram(s1,s2){
         return false;
 
      //sort both string
-     s1 = Array.from(s1).sort().join('');  // ['a','n','g','e','l'].join('');--> aegln
+     s1 = Array.from(s1).sort().join('');  // Array.from(s1) ==> ['a','n','g','e','l'].sort().join('') --> aegln
      s2 = Array.from(s2).sort().join('');
      for(let i=0; i < s1.length; i++){
         if(s1[i]!= s2[i]){
