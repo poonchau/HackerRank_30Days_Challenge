@@ -1,0 +1,26 @@
+function removeObject(obj, keyName) {
+  if (obj.hasOwnProperty(keyName)) {
+    delete obj[keyName];
+  } else {
+    for (const key in obj) {
+      if (typeof obj[key] === 'object') {
+        removeObject(obj[key], keyName);
+      }
+    }
+  }
+  return obj;
+}
+
+let obj = {
+  "a": 1,
+  "b": {
+    "c": {
+      "d": 3
+    }
+  }
+};
+
+let keyName = "b";
+let updatedObj = removeObject(obj, keyName);
+
+console.log(updatedObj);
