@@ -1,0 +1,15 @@
+finding the first occurrence of an element in a sorted array.
+
+function firstOccurrence(arr, target){
+    let mapIndexVal = {};
+	for(let i=0;i<arr.length;i++){
+		if(mapIndexVal.hasOwnProperty(arr[i]) && arr[i]==target){
+            console.log(arr[i], mapIndexVal.hasOwnProperty(arr[i]));
+			return mapIndexVal[arr[i]];
+		}else{
+			mapIndexVal[arr[i]] = i;
+		}
+	}
+}
+
+console.log(firstOccurrence([1,2,3,3,3,4,5],3));
