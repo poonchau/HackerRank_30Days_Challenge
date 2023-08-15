@@ -1,0 +1,44 @@
+    function binaryTreePaths(root) {
+    const result = [];
+    //base case 
+     if (root==null) {
+      return result; // or return null;
+    }
+  
+    function dfs(node, path) {
+      if (node==null) {
+        return;
+      }
+      // Add the current node's value to the current path
+      path.push(node.val);
+
+      if (node.left === null && node.right === null) {
+        // If we reach a leaf node, add the current path to the result
+        result.push(path.join("->"));
+      } else {
+        // Recursively explore the left and right subtrees
+        dfs(node.left, path);
+        dfs(node.right, path);
+      }
+  
+      // Remove the current node's value from the path to backtrack
+      path.pop();
+    }
+    dfs(root, []);
+  
+    return result;
+  }
+
+// Create the binary tree
+const root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.right = new TreeNode(5);
+
+// Find all paths
+const paths = binaryTreePaths(root);
+
+// Print the paths
+paths.forEach((path) => {
+  console.log(path);
+});
