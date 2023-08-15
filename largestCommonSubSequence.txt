@@ -1,3 +1,10 @@
+For example, consider the strings "abcde" and "ace". The LCS of these two strings is "ace", which is a sequence of characters that appears in both strings:
+
+"a" appears at index 0 in both strings.
+"c" appears at index 2 in both strings.
+"e" appears at index 4 in both strings.
+The LCS "ace" has a length of 3, which means it contains 3 characters.
+
 function largestCommonSubSequence(str1,str2,i,j){
 	if(i==str1.length || j==str2.length)
 		return 0;
