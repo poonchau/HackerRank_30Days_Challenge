@@ -20,3 +20,36 @@ function largestCommonSubSequence(str1,str2,i,j){
     return ans;
 }
 console.log(largestCommonSubSequence("abcde","ace",0,0)); //ace
+----------------------------------------------------------------------------------------------------------------
+to avoid TLE issue use memorization approach
+// use memorization here to avoid, overlapping problem
+// DP = Recursion + memorization
+function largestCommonSubSequence(str1,str2,i,j){
+    const m = str1.length;
+    const n = str2.length;
+
+    // Create a 2D DP array to store the lengths of LCS for different substrings
+      dp is a 2D array with m=4 rows and n=3 columns,
+      example 
+	   [ [ 0, 0, 0 ],
+	     [ 0, 0, 0 ],
+	     [ 0, 0, 0 ],
+	     [ 0, 0, 0 ] 
+	   ]
+
+    const dp = new Array(m + 1).fill(null).map(() => new Array(n + 1).fill(0));
+	
+	if(i==str1.length || j==str2.length)
+		return 0;
+	let ans = 0;
+    if(str1[i] == str2[j]){
+		ans = 1 + largestCommonSubSequence(str1, str2, i+1, j+1,dp);
+	}
+    else{
+		let op1 = largestCommonSubSequence(str1,str2, i+1, j, dp);
+		let op2 = largestCommonSubSequence(str1,str2, i, j+1, dp);
+		ans = Math.max(op1,op2);
+	}
+    return dp[i][j] = ans;
+}
+console.log(largestCommonSubSequence("abcde","ace",0,0)); //ace
