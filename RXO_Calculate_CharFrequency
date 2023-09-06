@@ -1,0 +1,17 @@
+let charCounter = {};
+let inputStr = "poonamshashi";
+for(let char of inputStr){
+    charCounter[char] = (charCounter[char] || 0) + 1;
+}
+console.log(charCounter);
+let compressed = '';
+for(let key in charCounter){
+  compressed+= key + charCounter[key];
+}
+console.log(compressed);// "p1o2n1a2m1s2h2i1"
+
+------------------------------------------------------------------------
+NOTE:
+//console.log(charCounter[char] && 0);  undefined && 0 --> undefined
+//console.log(1 && 0);  1 && 0 --> 0
+//console.log(1 || 0);  1 || 0 --> 1
