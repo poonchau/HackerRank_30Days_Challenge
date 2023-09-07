@@ -1,0 +1,26 @@
+
+function frequencyCount(s1,s2,count){
+    console.log(count);
+let charCounterStr1 = {};
+for(let char of s1){
+    charCounterStr1[char] = (charCounterStr1[char] || 0) + 1;
+}
+console.log(charCounterStr1);
+let charCounterStr2 = {};
+for(let char of s2){
+    charCounterStr2[char] = (charCounterStr2[char] || 0) + 1;
+}
+console.log(charCounterStr2);
+for(let key in charCounterStr2){
+    if(charCounterStr1.hasOwnProperty(key)){
+        if(charCounterStr1[key] >= charCounterStr2[key]){
+                count += charCounterStr2[key];
+        }
+    }
+}
+console.log(count);
+console.log(s2.length==count? true:false);
+}
+
+//frequencyCount("decor","coder",0);
+frequencyCount("helowrsl","hello",0);
