@@ -1,0 +1,74 @@
+1st Approach
+
+function reverseStrWordByWord(s) {
+   console.log(s); 
+  let str = "";
+  let res = "";
+  let words = [];
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== " ") {
+      str = str + s[i];
+    } else {
+      words.push(str);
+      str = "";
+    }
+  }
+
+  // Add the last word
+  words.push(str);
+  console.log(words);
+
+  // Reverse the order of words
+  for (let i = words.length - 1; i >= 0; i--) {
+    res = res + words[i];
+    if (i > 0) {
+      res = res + " ";
+    }
+  }
+  console.log(res);
+}
+
+reverseStrWordByWord("sky is blue");
+reverseStrWordByWord(" sky is blue");
+reverseStrWordByWord("sky is blue ");
+
+but the above code will fail in this case --> reverseStrWordByWord(" sky is blue ");
+even if we use trim() function to remove the spaces
+
+
+//////////////////////////////////
+2nd Approach
+
+
+function reverseStrWordByWord(s) {
+  // Split the input string by spaces
+  const words = s.split(" ");
+  //console.log(words);
+  // Filter out any empty strings resulting from consecutive spaces
+    const filteredWords = words.filter(word => word !== "");
+    let modifiedStr = filteredWords.join(" ");
+    let i = modifiedStr.length;
+    let j = i;
+    let result = "";
+
+  while(i >= 0){
+    if(s[i] != " "){
+      i--;
+    }else{
+     result = result + s.substring(i+1, j+1) + " ";  
+     j = i;
+     i--;
+    }
+  }
+
+  result = result + s.substring(i+1, j+1);
+  console.log(result); 
+}
+
+reverseStrWordByWord(" sky is blue");
+reverseStrWordByWord("sky is blue ");
+reverseStrWordByWord(" sky is blue ");
+
+
+
