@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static List<int> Flatten(List<object> arr)
+    {
+        List<int> output = new List<int>();
+
+        foreach (var item in arr)
+        {
+            if (item is int)
+            {
+                output.Add((int)item);
+            }
+            else if (item is List<object>)
+            {
+                output.AddRange(Flatten((List<object>)item));
+            }
+        }
+
+        return output;
+    }
+
+    static void Main()
+    {
+        List<object> input = new List<object> 
+        {
+            1, 2, new List<object> { 3, 4, 5 }, 6, new List<object> { 7, 8, new List<object> { 9, 10, 11 } }, 12, 13
+        };
+
+        List<int> output = Flatten(input);
+
+        foreach (var number in output)
+        {
+            Console.WriteLine(number);
+        }
+    }
+}
+
+
+  
+
