@@ -1,7 +1,7 @@
 function separateStringByUndercore(){
 	let result = '';
 	for(let i=0; i < input.length; i++){
-	  let asciiValue = input[i].chatCodeAt(0);
+	  let asciiValue = input[i].charCodeAt(0);
 	  if(asciiValue >= 65 && asciiValue <= 90){
 		result += '_' + input[i];
 	  }else
