@@ -21,3 +21,6 @@ same logic works for unsorted array as well -->
 let arr = [4,2,6,1];
 target = 10;
 console.log(sum(arr,target)); // [ 4, 6 ]
+
+IMP: return the indexes of the two numbers that sum up to the target (instead of their values)
+     --> return [visitedNumbers.get(diff),i]
