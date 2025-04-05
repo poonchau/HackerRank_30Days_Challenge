@@ -32,3 +32,42 @@ let res2 = {};
 }
 
 console.log(checkAnagram("below","elowb"));
+
+
+
+
+----------------------------------------------------
+
+ for(let key in res1){
+   if(res2.hasOwnProperty(key) && res2[key] == res1[key]){
+		isAnagram = true;
+   }else {
+	  isAnagram = false;
+   }
+  }
+
+------------------------------------------------------------
+ for(let char of s1){
+	res1[char] = ( res1[char] || 0 ) + 1
+  }
+  
+  for(let char of s2){
+	res2[char] = (res2[char] || 0 ) + 1
+  }
+
+Replace it with single loop
+countChar = {};
+for(let i=0; i< res1.length;i++){
+  countChar[res1[i]] = ( countChar[res1[i]] || 0 ) + 1;
+  countChar[res2[i]] = ( countChar[res2[i]] || 0 ) - 1;
+}
+countChar = {b:0, e:0, l:0, o:0, w:0}
+for(let key in countChar){
+if(countChar[key] !== 0){
+ return false;
+}
+}
+
+we can use every
+return Object.Values(countChar).every(count => count == 0)
+
