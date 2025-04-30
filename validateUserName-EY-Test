@@ -1,0 +1,17 @@
+function validateUserName(username){
+    for(let i=0; i< username.length; i++){
+     let ascilVal = username.charCodeAt(i);
+            //NOT IN lowerCase char            AND NOT IN  upperCase char
+        if(!(ascilVal >= 97 && ascilVal <= 122) && !(ascilVal >= 65 && ascilVal <= 90)){
+            if(ascilVal >= 48 && ascilVal <= 57){
+                return "invalid username! Contains numbers";
+            }else{
+                return "invalid username! Contains specialcharters";
+            }
+        }
+    }
+    return "valid username";
+}
+console.log(validateUserName("Poon1m"))
+console.log(validateUserName("Poon_m"))
+console.log(validateUserName("Poon$m"))
