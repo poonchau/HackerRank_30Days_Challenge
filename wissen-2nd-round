@@ -1,0 +1,20 @@
+// Find sequencial char frequency
+
+function findSequenceChar(str){
+  let result = "";
+  let count = 1;
+  let i = 0;
+  while(i <= str.length){
+   if(str[i]===str[i+1]){
+      count = count + 1;
+   }else {
+     result+= str[i] + count;
+     count = 1;
+   }
+   i++;
+  }
+  return result;
+}
+
+let input = 'aaaa555tttAA33000aa';
+console.log(findSequenceChar(input));
