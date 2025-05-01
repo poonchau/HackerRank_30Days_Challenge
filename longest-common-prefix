@@ -1,0 +1,27 @@
+//given an array of strings, find the longest common string 
+// IMP Note: "Poo".indexOf("Poonam") => -1
+// "m" = "Poonam".slice(0,-1)
+
+function longestCommonString(arr){
+    //base case
+    if(arr.length === 0){
+        return ""
+    }
+
+   let prefix = arr[0];
+    // iterate over each string
+    for(let i = 1; i < arr.length; i++){
+        while(arr[i].indexOf(prefix) !== 0){
+            // Reduce prefix until match is found
+            prefix = prefix.slice(0,-1);
+
+            //
+            if(prefix === "")
+              return "Not Found"
+        }
+    }
+
+    return prefix
+}
+
+console.log(longestCommonString(["geeksforgeeks", "geeks", "geeker", "gee"])); // gee
