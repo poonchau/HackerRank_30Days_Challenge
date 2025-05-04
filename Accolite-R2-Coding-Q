@@ -1,0 +1,18 @@
+function removeDuplicatesChar(str){
+  let distinctChar = "";
+
+  for(let i = 0; i < str.length; i++){
+    if(!distinctChar.includes(str[i])){
+      distinctChar+= str[i]
+    }
+  }
+  
+  
+  distinctChar = distinctChar.split('').sort().join('');
+  return distinctChar;
+
+}
+
+
+let data = "abhckjcovpbpdvbmnodpeopbbbccc";
+console.log(removeDuplicatesChar(data));
