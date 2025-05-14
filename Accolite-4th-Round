@@ -1,0 +1,33 @@
+function findDistinctElements() {
+
+  let freqMap = {};
+
+  let distinctArr = []
+
+  for (let value of arr) {
+
+    if (freqMap.hasOwnProperty(value)) {
+
+      freqMap[value] += 1;
+
+      if (freqMap[value] === 2) {
+
+        distinctArr.push(value)
+
+      }
+
+    } else {
+
+      freqMap[value] = 1;
+
+    }
+
+  }
+
+  return distinctArr;
+
+}
+
+let arr = [1, 2, 3, 4, 5, 3, 2];
+
+console.log(findDistinctElements(arr));
